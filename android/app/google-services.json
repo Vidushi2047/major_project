@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "482348533801",
+    "project_id": "flash-chat-608cf",
+    "storage_bucket": "flash-chat-608cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482348533801:android:78dc0bfa9aae5b99f27438",
+        "android_client_info": {
+          "package_name": "com.vidushi.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482348533801-343gjskl6mi8cu01oppmoe84ljmurpav.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2wNn-RcVKbCSzajSP7sDxxV-6fr6WCfM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482348533801-343gjskl6mi8cu01oppmoe84ljmurpav.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
