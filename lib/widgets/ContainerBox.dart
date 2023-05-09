@@ -33,7 +33,7 @@ class CantainerBox extends StatelessWidget {
                       child:GestureDetector(
                         onTap:onpress,
                         child: Container(
-                        margin:const EdgeInsets.all(ksmallSpacing),
+                        margin:const EdgeInsets.all(ksmallSpacing/2),
                         decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(kdefaultPadding),
                         image:  DecorationImage(image: AssetImage(image!),

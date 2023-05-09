@@ -2,10 +2,11 @@ import 'dart:math';
 
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flash_chat/screens/ProfileScreen.dart';
 import 'package:flash_chat/screens/Users/ActivityScreen.dart';
 import 'package:flash_chat/screens/Users/ChangePassword.dart';
 import 'package:flash_chat/screens/Users/Dashboard.dart';
-import 'package:flash_chat/screens/Users/Profile.dart';
+import 'package:flash_chat/widgets/Profile.dart';
 import 'package:flash_chat/screens/login_screen.dart';
 import 'package:flash_chat/utils/constant.dart';
 import 'package:flutter/material.dart';
@@ -76,7 +77,7 @@ double val =0;
                           onTap: () {
                             Navigator.push(context,MaterialPageRoute(
                               builder: (context) {
-                              return Profile();
+                              return ProfileScreen();
                             },));
                           },
                           child:  ListTile(leading: Icon(Icons.person,color: Colors.white,),

@@ -13,15 +13,21 @@ class _ActivityScreenState extends State<ActivityScreen> {
     Size size=MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Activity'),
+        title:const Text('Activity',style: TextStyle(color: Colors.blueAccent),),
+        backgroundColor: Colors.white,
         centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: size.height/2,
               width: double.maxFinite,
+              child: Column(
+                children: [
+                  
+                ],
+              ),
    
             )
           ],
