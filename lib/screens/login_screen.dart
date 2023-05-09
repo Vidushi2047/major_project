@@ -73,23 +73,18 @@ var password="";
               ),
             ),
           const  SizedBox(height: ksmallSpacing,),
-             TextFormField(
+             TextField(
               
              
                obscureText: true,
               controller: passwordController,
-              validator: (value) {
-                if(value==null||value.isEmpty){
-                  return 'Please Enter Password';
-                }
-              
-                return null;
-              },
+            
               onChanged: (value) {
                 
               },
               decoration: const InputDecoration(
-               
+               filled: true,
+               fillColor: Colors.white,
                 border:OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(kdefaultPadding),),
                 borderSide: BorderSide(width: 1,color: Colors.blueAccent)),
                 hintText: 'xyz@12345',

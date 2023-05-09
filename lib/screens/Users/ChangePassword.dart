@@ -13,6 +13,7 @@ class ChangePassword extends StatefulWidget {
 class _ChangePasswordState extends State<ChangePassword> {
 
   TextEditingController changePasswordController=TextEditingController();
+  final _formkey=GlobalKey<FormState>();
  @override
   void dispose(){
     super.dispose();
@@ -26,10 +27,14 @@ class _ChangePasswordState extends State<ChangePassword> {
 
     },));
   }
+
+  String newPassword='';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body:Form(
+        key: _formkey,
+        child: Column(
         children: [
            Padding(padding: const EdgeInsets.all(kdefaultPadding),
          child:  TextFormField(
@@ -50,11 +55,20 @@ class _ChangePasswordState extends State<ChangePassword> {
         Padding(padding:const EdgeInsets.all(kdefaultPadding),child:  Row(mainAxisAlignment: MainAxisAlignment.center,
           children: [ TextButton(
             style:const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.blue)),
-            onPressed: (){}, 
+            onPressed: ()
+            {
+              if(_formkey.currentState!.validate()){
+                
+                 setState(() {
+                    newPassword=changePasswordController.text;
+                 });
+                 ChangePassword();
+              }
+            }, 
             child:const Text('Change Password',
             style: TextStyle(color: Colors.white),)),],),)
         ],
-      )
+      ),)
     );
   }
 }

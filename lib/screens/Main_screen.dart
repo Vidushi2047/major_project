@@ -18,13 +18,24 @@ class _MainPageState extends State<MainPage> {
     return StreamBuilder(
       stream: Auth().authStateChange,
       builder: (context, snapshot) {
-        if(snapshot.hasData){
-           return ChatScreen();
-        }
-        else
-        {
-          return WelcomeScreen();
-        }
+       if(!snapshot.hasData){
+        return Text('error');
+       }
+       else{
+        return WelcomeScreen();
+       }
+
+        // if(snapshot.connectionState==ConnectionState.waiting){
+        //    return const Center(
+        //     child: CircularProgressIndicator(),
+        //    );
+        // }
+        // else if(snapshot.hasError)
+        // {
+        //   print('something went wrong');
+        // }
+        //  return const WelcomeScreen();
+       
       },);
   }
 }

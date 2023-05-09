@@ -1,10 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flash_chat/auth.dart';
 import 'package:flash_chat/screens/chat_screen.dart';
 import 'package:flash_chat/screens/welcome_screen.dart';
 import 'package:flash_chat/utils/constant.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 import '../utils/colors.dart';
 import '../widgets/ButtonWidget.dart';
@@ -29,30 +29,21 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
  late String email;
  late String password;
  late String comfirmpassword;
+// registration()async{
+//  if(password==comfirmpassword)
+//  {
+//   await FirebaseAuth.instance.createUserWithEmailAndPassword(
+//     email: email,
+//      password: password);
+//  }
+//  else
+//  {
+//   print("Password doesn't Match");
+//  }
+//  }
 
 
- Future <void>signInWithEmailAndPassword()async{
-        try{
-            await Auth().signInwithEmailAndPassword
-          (email: emailController.text, 
-          password: passwordController.text);
-        }on FirebaseAuthException catch(e){
-         setState(() {
-           Auth().errorMessage=e.message!;
-         });
-        }
- }
- Future <void>createUserWithEmailAndPassword()async{
-        try{
-            await Auth().createUserwithEmailAndPassword
-          (email: emailController.text, 
-          password: passwordController.text);
-        }on FirebaseAuthException catch(e){
-         setState(() {
-           Auth(). errorMessage=e.message!;
-         });
-        }
- }
+ @override
  void dispose(){
   emailController.dispose();
   passwordController.dispose();
@@ -154,12 +145,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 setState(() {
                   email=emailController.text;
                   password=passwordController.text;
+                   comfirmpassword=comfirmpasswordController.text;
                 });
+                // registration();
               }
 
             
             },
-            text: Auth().islogin?'registor':'Log in',
+            text: 'registor',
             color: Colors.blueAccent,),
            
           ],
