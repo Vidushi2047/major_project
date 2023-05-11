@@ -1,4 +1,4 @@
-import 'dart:ui';
+
 
 import 'package:flutter/material.dart';
 
@@ -19,19 +19,20 @@ class ButtonWidget extends StatelessWidget {
       child:  Container(
       
      decoration: BoxDecoration(
-      boxShadow: [BoxShadow(
-        color: Colors.blue.withOpacity(0.5),
+      boxShadow: const[
+        BoxShadow(
+        color: Color.fromARGB(255, 201, 216, 229),
         offset: const Offset(0, 5),
-        blurRadius: 10
-        
-      ),], 
+        blurRadius: 10,  
+      ),
+      ], 
        color: color,
        borderRadius: BorderRadius.circular(kdefaultPadding),
      ),
-     child:Padding(padding: EdgeInsets.all(knormalSpacing),
+     child:Padding(padding:const EdgeInsets.all(knormalSpacing),
      child:  Center(
        child: Text(text!,
-     style:TextStyle(
+     style:const TextStyle(
        color: Colors.white,
        fontSize: 12
      ),),

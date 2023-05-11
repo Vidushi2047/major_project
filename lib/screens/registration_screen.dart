@@ -1,13 +1,17 @@
+// import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:flash_chat/auth.dart';
+// import 'package:flash_chat/screens/Users/user_main.dart';
+// import 'package:flash_chat/screens/chat_screen.dart';
+// import 'package:flash_chat/screens/welcome_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flash_chat/auth.dart';
-import 'package:flash_chat/screens/chat_screen.dart';
-import 'package:flash_chat/screens/welcome_screen.dart';
 import 'package:flash_chat/utils/constant.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/colors.dart';
 import '../widgets/ButtonWidget.dart';
+import 'chat_screen.dart';
 
 
 class RegistrationScreen extends StatefulWidget {
@@ -26,21 +30,47 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
  final emailController=TextEditingController();
  final passwordController=TextEditingController();
   final comfirmpasswordController=TextEditingController();
- late String email;
+  String? email;
  late String password;
  late String comfirmpassword;
-// registration()async{
-//  if(password==comfirmpassword)
-//  {
-//   await FirebaseAuth.instance.createUserWithEmailAndPassword(
-//     email: email,
-//      password: password);
-//  }
-//  else
-//  {
-//   print("Password doesn't Match");
-//  }
-//  }
+
+ static const KeyEmail='email';
+ static const keyUid='uid';
+
+ registration(){
+ if(password==comfirmpassword)
+ {
+  print('password is same');
+   FirebaseAuth.instance.createUserWithEmailAndPassword(
+    email: KeyEmail,
+     password: password).then((value) async {
+      if(value!=null)
+      {
+      
+        print('successfull');
+         print(value);
+          print(value.runtimeType);
+            var pref = await SharedPreferences.getInstance();
+                  pref.setString(KeyEmail, value.user!.uid );
+                  pref.setString(keyUid, value.user!.email.toString());
+         print('successfull');
+ Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return ChatScreen();
+
+
+      },
+      )
+      
+      );
+      }
+     
+     });
+ }
+ else
+ {
+  print("Password doesn't Match");
+ }
+ }
 
 
  @override
@@ -101,6 +131,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 if(value==null||value.isEmpty){
                   return 'Please Enter Password';
                 }
+                 else if(value.length<=5){
+                  return 'Password length must be greater than 6';
+                }
               
                 return null;
               },
@@ -125,6 +158,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 if(value==null||value.isEmpty){
                   return 'Please Enter Password';
                 }
+                else if(value.length<=5){
+                  return 'Password length must be greater than 6';
+                }
               
                 return null;
               },
@@ -139,26 +175,25 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
             ),
             const SizedBox(height: kdefaultPadding,),
-            ButtonWidget(onpress:(){
+            ButtonWidget(onpress:()async{
               if(_formkey.currentState!.validate())
               {
-                setState(() {
+               
                   email=emailController.text;
                   password=passwordController.text;
                    comfirmpassword=comfirmpasswordController.text;
-                });
-                // registration();
-              }
+             
+                 registration();
 
-            
+                
+              }
             },
             text: 'registor',
             color: Colors.blueAccent,),
-           
           ],
         ),
-      ) ),
+      ), ),
     );
-  }
- 
+  
+ }
 }

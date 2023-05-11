@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flash_chat/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
 
@@ -19,8 +21,18 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return  Scaffold(
      body: Container(
-      child:const Center(
-        child: Text('data'),
+      child: Center(
+        child: TextButton(onPressed: ()
+        {
+          FirebaseAuth.instance.signOut().then(
+            (value)
+             {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return WelcomeScreen(); 
+              },));
+             });
+        },
+         child: Text('Log out')),
       ),
      ),
     );

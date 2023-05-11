@@ -37,7 +37,7 @@ class ProfileScreen extends StatelessWidget {
               ),
                Positioned(
                   top: 80,
-                  left: size.width/4,
+                  left: size.width/5,
                   child: Column(children: [
                                   Text(
                     "Sachin Lal",

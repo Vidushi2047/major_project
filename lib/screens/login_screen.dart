@@ -1,13 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat/screens/ForgetPassword_screen.dart';
-import 'package:flash_chat/screens/Users/user_main.dart';
+import 'package:flash_chat/screens/chat_screen.dart';
 import 'package:flash_chat/screens/registration_screen.dart';
-import 'package:flash_chat/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
-
 import '../utils/colors.dart';
 import '../utils/constant.dart';
 import '../widgets/ButtonWidget.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:flash_chat/screens/welcome_screen.dart';
+// import 'package:flash_chat/screens/Users/user_main.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id='login_screen';
@@ -20,16 +22,12 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
 final _formkey=GlobalKey<FormState>();
 
-var email="";
-var password=""; 
+late var email;
+late var password; 
 
  final emailController=TextEditingController();
  final passwordController=TextEditingController();
- userLogin(){
-  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-    return UserMain();
-  },));
- }
+
   
   @override
   Widget build(BuildContext context) {
@@ -97,11 +95,17 @@ var password="";
             {
               if(_formkey.currentState!.validate())
               {
-                setState(() {
+               
                   email=emailController.text;
                   password=passwordController.text;
-                });
-                userLogin();
+                  FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password).then(
+                    (value) {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        return const ChatScreen();
+
+                      },));
+                    });
+               
               }
 
             },
@@ -125,6 +129,7 @@ var password="";
               Navigator.pushNamed(context, RegistrationScreen.id);
             }, child: Text('sign up')),
           ],)
+          
             
           ],
         ),

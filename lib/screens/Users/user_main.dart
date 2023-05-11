@@ -5,6 +5,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flash_chat/screens/ProfileScreen.dart';
 import 'package:flash_chat/screens/Users/ActivityScreen.dart';
 import 'package:flash_chat/screens/Users/ChangePassword.dart';
+import 'package:flash_chat/screens/Users/ClubScreen.dart';
 import 'package:flash_chat/screens/Users/Dashboard.dart';
 import 'package:flash_chat/widgets/Profile.dart';
 import 'package:flash_chat/screens/login_screen.dart';
@@ -61,7 +62,7 @@ double val =0;
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                        CircleAvatar(backgroundImage: AssetImage('Assets/images/rashmi.jpg'),
+                        CircleAvatar(backgroundImage: AssetImage('Assets/images/rashmika.jpg'),
                         radius: 50,),
                         SizedBox(height: ksmallSpacing,),
                         Text('Rashmika ',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w600),)
@@ -118,7 +119,7 @@ double val =0;
                });
              },
             child: Icon(Icons.menu),),
-            title: Text('Welcome Vidushi!'),
+            title: Text('Welcome Rashmika!'),
             backgroundColor: Colors.pinkAccent,
             centerTitle: true,
             elevation: 0,
@@ -148,7 +149,9 @@ double val =0;
                    CantainerBox(
                       image: 'Assets/images/club.jpeg',
                       onpress: () {
-                        
+                        Navigator.push(context,MaterialPageRoute(builder: (context) {
+                          return ClubScreen();
+                        },));
                       },
                     ),
                     SizedBox(height:knormalSpacing),
