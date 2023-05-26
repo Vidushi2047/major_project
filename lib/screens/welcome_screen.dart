@@ -8,32 +8,30 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import '../widgets/ButtonWidget.dart';
 
 class WelcomeScreen extends StatefulWidget {
+  static const String id = 'welcome_screen';
 
-static const String id='welcome_screen';
-
-
- const  WelcomeScreen({super.key});
+  const WelcomeScreen({super.key});
 
   @override
   State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProviderStateMixin{
+class _WelcomeScreenState extends State<WelcomeScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+  late Animation animation;
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+      duration: const Duration(seconds: 3),
 
- late AnimationController controller;
- late Animation animation;
- @override
- void initState(){
-   super.initState();
-  controller=AnimationController(
-    duration:const Duration(seconds:3
-     ),
-   
-    vsync: this,
-    // upperBound: 100
+      vsync: this,
+      // upperBound: 100
     );
-        animation=ColorTween(begin: Colors.blueGrey,end:  Colors.white).animate(controller);
-      // animation=CurvedAnimation(parent: controller, curve: Curves.decelerate);
+    animation = ColorTween(begin: Colors.blueGrey, end: Colors.white)
+        .animate(controller);
+    // animation=CurvedAnimation(parent: controller, curve: Curves.decelerate);
     controller.forward();
     // animation.addStatusListener((status) {
     //   if(status==AnimationStatus.completed){
@@ -44,67 +42,72 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     //   }
 
     // });
-    
-    
+
     controller.addListener(() {
-      setState(() {
-        
-      });
-     
+      setState(() {});
     });
-   
- }
-@override
- void dispose(){
-  controller.dispose();
-  super.dispose();
- }
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      backgroundColor:animation.value,
-      body: Padding(padding: EdgeInsets.symmetric(horizontal: kdefaultPadding),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-             Hero(tag: 'logo', child:  Icon(Icons.flash_on,color: flashColor,size:40),),
-              SizedBox(width: 12,),
-
-              
-              AnimatedTextKit(animatedTexts: [
-               TypewriterAnimatedText('Flash Chat',textStyle: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.black54),)
-              ]),
-              
-            ],
-          ),
-          SizedBox(height: kdefaultPadding+ksmallSpacing,),
-         ButtonWidget(
-          onpress:() {
-            Navigator.pushNamed(context, LoginScreen.id);
-          }, 
-          text: 'log in',
-          color:Colors.lightBlue ,
-         ),
-         SizedBox(height: kdefaultPadding,),
-          ButtonWidget(
-            onpress: (){
-              Navigator.pushNamed(context, RegistrationScreen.id);
-            },
-          text: 'registration',
-          color: Colors.blueAccent,
-         )
-          
-        ],
-      ),),
+    return Scaffold(
+      backgroundColor: animation.value,
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: kdefaultPadding),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Hero(
+                  tag: 'logo',
+                  child: Icon(Icons.flash_on, color: flashColor, size: 40),
+                ),
+                SizedBox(
+                  width: 12,
+                ),
+                AnimatedTextKit(animatedTexts: [
+                  TypewriterAnimatedText(
+                    'Kiet Event',
+                    textStyle: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black54),
+                  )
+                ]),
+              ],
+            ),
+            SizedBox(
+              height: kdefaultPadding + ksmallSpacing,
+            ),
+            ButtonWidget(
+              onpress: () {
+                Navigator.pushNamed(context, LoginScreen.id);
+              },
+              text: 'log in',
+              color: Colors.lightBlue,
+            ),
+            SizedBox(
+              height: kdefaultPadding,
+            ),
+            ButtonWidget(
+              onpress: () {
+                Navigator.pushNamed(context, RegistrationScreen.id);
+              },
+              text: 'registration',
+              color: Colors.blueAccent,
+            )
+          ],
+        ),
+      ),
     );
   }
 }
-

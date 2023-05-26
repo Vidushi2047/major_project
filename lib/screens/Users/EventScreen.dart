@@ -1,4 +1,8 @@
+import 'package:flash_chat/utils/constant.dart';
 import 'package:flutter/material.dart';
+
+import '../../widgets/PhotoContainer.dart';
+import '../../widgets/photoCollage.dart';
 
 class EventScreen extends StatefulWidget {
   const EventScreen({super.key});
@@ -10,6 +14,62 @@ class EventScreen extends StatefulWidget {
 class _EventScreenState extends State<EventScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        title: const Text(
+          'Events',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.blueAccent,
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: knormalSpacing + 5),
+        child: SingleChildScrollView(
+          child: Column(
+            children: const [
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: ksmallSpacing),
+                child: PhotoCollage(
+                  image1: 'Assets/images/even1.jpg',
+                  image2: 'Assets/images/even2.jpg',
+                  image3: 'Assets/images/event3.jpg',
+                ),
+              ),
+              PhotoContainer(
+                image: 'Assets/images/even4.jpg',
+              ),
+              PhotoContainer(
+                image: 'Assets/images/even5.jpg',
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: ksmallSpacing),
+                child: PhotoCollage(
+                  image1: 'Assets/images/even1.jpg',
+                  image2: 'Assets/images/even2.jpg',
+                  image3: 'Assets/images/event3.jpg',
+                ),
+              ),
+              PhotoContainer(
+                image: 'Assets/images/even4.jpg',
+              ),
+              PhotoContainer(
+                image: 'Assets/images/even5.jpg',
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: ksmallSpacing),
+                child: PhotoCollage(
+                  image1: 'Assets/images/even6.jpg',
+                  image2: 'Assets/images/even2.jpg',
+                  image3: 'Assets/images/even1.jpg',
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
