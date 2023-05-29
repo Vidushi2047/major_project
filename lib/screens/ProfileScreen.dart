@@ -55,7 +55,7 @@ class ProfileScreen extends StatelessWidget {
                             fontSize: 18,
                             color: Colors.white,
                             fontWeight: FontWeight.w500),
-                      )
+                      ),
                     ],
                   )),
               Positioned(top: 150, left: 30, child: Profile()),

@@ -1,22 +1,19 @@
 import 'dart:math';
-
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flash_chat/containercard.dart';
+import 'package:flash_chat/screens/screenclub.dart';
 import 'package:flash_chat/screens/ProfileScreen.dart';
-import 'package:flash_chat/screens/Users/ActivityScreen.dart';
-import 'package:flash_chat/screens/Users/ChangePassword.dart';
-import 'package:flash_chat/screens/Users/ClubScreen.dart';
-import 'package:flash_chat/screens/Users/Dashboard.dart';
-import 'package:flash_chat/screens/Users/EventScreen.dart';
+import 'package:flash_chat/screens/ActivityScreen.dart';
+import 'package:flash_chat/screens/ChangePassword.dart';
+import 'package:flash_chat/screens/Dashboard.dart';
+import 'package:flash_chat/screens/EventScreen.dart';
 import 'package:flash_chat/widgets/Profile.dart';
 import 'package:flash_chat/screens/login_screen.dart';
 import 'package:flash_chat/utils/constant.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/ContainerBox.dart';
-import '../welcome_screen.dart';
+import '../widgets/ContainerBox.dart';
+import 'welcome_screen.dart';
 import 'clubscreens.dart';
 
 class UserMain extends StatefulWidget {
@@ -104,7 +101,7 @@ class _UserMainState extends State<UserMain> {
                               onTap: () {
                                 Navigator.push(context, MaterialPageRoute(
                                   builder: (context) {
-                                    return CustomCard();
+                                    return ClubScreen();
                                   },
                                 ));
                               },
@@ -117,22 +114,13 @@ class _UserMainState extends State<UserMain> {
                                     style: TextStyle(color: Colors.white)),
                               ),
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(context, MaterialPageRoute(
-                                  builder: (context) {
-                                    return ActivityScreen();
-                                  },
-                                ));
-                              },
-                              child: const ListTile(
-                                leading: Icon(
-                                  Icons.local_activity_outlined,
-                                  color: Colors.white,
-                                ),
-                                title: Text('Activity',
-                                    style: TextStyle(color: Colors.white)),
+                            const ListTile(
+                              leading: Icon(
+                                Icons.local_activity_outlined,
+                                color: Colors.white,
                               ),
+                              title: Text('Activity',
+                                  style: TextStyle(color: Colors.white)),
                             ),
                             GestureDetector(
                               onTap: () {
@@ -164,20 +152,8 @@ class _UserMainState extends State<UserMain> {
                                 Icons.exit_to_app_outlined,
                                 color: Colors.white,
                               ),
-                              title: GestureDetector(
-                                  onTap: () {
-                                    FirebaseAuth.instance
-                                        .signOut()
-                                        .then((value) {
-                                      Navigator.push(context, MaterialPageRoute(
-                                        builder: (context) {
-                                          return WelcomeScreen();
-                                        },
-                                      ));
-                                    });
-                                  },
-                                  child: const Text('Log out',
-                                      style: TextStyle(color: Colors.white))),
+                              title: const Text('Log out',
+                                  style: TextStyle(color: Colors.white)),
                             ),
                           ],
                         ))
@@ -254,7 +230,7 @@ class _UserMainState extends State<UserMain> {
                               onpress: () {
                                 Navigator.push(context, MaterialPageRoute(
                                   builder: (context) {
-                                    return ClubScreens();
+                                    return ClubScreen();
                                   },
                                 ));
                               },

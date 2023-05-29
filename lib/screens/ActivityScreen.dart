@@ -1,8 +1,9 @@
 import 'package:flash_chat/utils/constant.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/PhotoContainer.dart';
-import '../../widgets/photoCollage.dart';
+import '../widgets/PhotoContainer.dart';
+import '../widgets/activityheading.dart';
+import '../widgets/photoCollage.dart';
 
 class ActivityScreen extends StatefulWidget {
   const ActivityScreen({super.key});
@@ -30,7 +31,9 @@ class _ActivityScreenState extends State<ActivityScreen> {
         padding: EdgeInsets.symmetric(horizontal: knormalSpacing + 5),
         child: SingleChildScrollView(
           child: Column(
-            children: const [
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              activityheading(),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: ksmallSpacing),
                 child: PhotoCollage(
@@ -39,12 +42,15 @@ class _ActivityScreenState extends State<ActivityScreen> {
                   image3: 'Assets/images/act3.jpg',
                 ),
               ),
+              activityheading(),
               PhotoContainer(
                 image: 'Assets/images/act4.jpg',
               ),
+              activityheading(),
               PhotoContainer(
                 image: 'Assets/images/act5.jpg',
               ),
+              activityheading(),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: ksmallSpacing),
                 child: PhotoCollage(
@@ -53,12 +59,15 @@ class _ActivityScreenState extends State<ActivityScreen> {
                   image3: 'Assets/images/act8.jpg',
                 ),
               ),
+              activityheading(),
               PhotoContainer(
                 image: 'Assets/images/act9.jpg',
               ),
+              activityheading(),
               PhotoContainer(
                 image: 'Assets/images/act5.jpg',
               ),
+              activityheading(),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: ksmallSpacing),
                 child: PhotoCollage(

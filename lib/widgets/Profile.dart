@@ -7,19 +7,17 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5),
-      child: Container(
-        // height: 400,
-    
-        width: size.width - 60,
-        child: Column(
-          children: [
-           
-            _profilecard(),
-          ],
-        ),
-      )
-    );
+        padding: const EdgeInsets.symmetric(horizontal: 5),
+        child: Container(
+          // height: 400,
+
+          width: size.width - 60,
+          child: Column(
+            children: [
+              _profilecard(),
+            ],
+          ),
+        ));
   }
 }
 
@@ -28,7 +26,6 @@ Widget _profilecard() {
     color: Color.fromARGB(255, 255, 255, 255),
     child: Column(
       children: const [
-       
         ListTile(
           leading: Icon(Icons.person_2),
           title: Text("2124MCA1136"),
@@ -39,7 +36,7 @@ Widget _profilecard() {
         ),
         ListTile(
           leading: Icon(Icons.person),
-          title: Text("Inogeeks"),
+          title: Text("2100290140114"),
         ),
         Divider(
           height: 5,
@@ -47,7 +44,7 @@ Widget _profilecard() {
         ),
         ListTile(
           leading: Icon(Icons.person),
-          title: Text("Coding,poetry,sports"),
+          title: Text("Clubs Enrolled"),
         ),
         Divider(
           height: 5,
@@ -55,15 +52,29 @@ Widget _profilecard() {
         ),
         ListTile(
           leading: Icon(Icons.person),
-          title: Text("USERNAME"),
+          title: Text("Activities"),
         ),
-         Divider(
+        Divider(
           height: 5,
           endIndent: 0,
         ),
         ListTile(
           leading: Icon(Icons.person),
-          title: Text("USERNAME"),
+          title: Text("Events"),
+        ),
+        Divider(
+          height: 5,
+        ),
+        ListTile(
+          leading: Icon(Icons.person),
+          title: Text("Certificates"),
+        ),
+        Divider(
+          height: 5,
+        ),
+        ListTile(
+          leading: Icon(Icons.person),
+          title: Text("Personal Details"),
         ),
       ],
     ),

@@ -1,16 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat/screens/ForgetPassword_screen.dart';
-import 'package:flash_chat/screens/chat_screen.dart';
+
 import 'package:flash_chat/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 import '../utils/constant.dart';
 import '../widgets/ButtonWidget.dart';
-import 'Users/user_main.dart';
-// import 'package:firebase_core/firebase_core.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:flash_chat/screens/welcome_screen.dart';
-// import 'package:flash_chat/screens/Users/user_main.dart';
+import 'user_main.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
@@ -105,16 +100,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     if (_formkey.currentState!.validate()) {
                       email = emailController.text;
                       password = passwordController.text;
-                      FirebaseAuth.instance
-                          .signInWithEmailAndPassword(
-                              email: email, password: password)
-                          .then((value) {
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) {
-                            return UserMain();
-                          },
-                        ));
-                      });
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return UserMain();
+                        },
+                      ));
                     }
                   },
                   text: 'login',
