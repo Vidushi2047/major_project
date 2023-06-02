@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 import '../utils/constant.dart';
 import '../widgets/ButtonWidget.dart';
+import 'frontscreen.dart';
 import 'user_main.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -102,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       password = passwordController.text;
                       Navigator.push(context, MaterialPageRoute(
                         builder: (context) {
-                          return UserMain();
+                          return FrontScreen();
                         },
                       ));
                     }

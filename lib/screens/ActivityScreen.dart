@@ -25,7 +25,6 @@ class _ActivityScreenState extends State<ActivityScreen> {
         ),
         backgroundColor: Colors.blueAccent,
         centerTitle: true,
-        automaticallyImplyLeading: false,
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: knormalSpacing + 5),
