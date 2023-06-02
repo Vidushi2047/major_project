@@ -1,4 +1,4 @@
-# flash_chat
+# KIET_EVENT_MANAGEMENT_APP
 
 A new Flutter project.
 
