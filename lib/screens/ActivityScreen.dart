@@ -1,5 +1,5 @@
-import 'package:kiet_event/utils/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:kiet_event/utils/constant.dart';
 
 import '../widgets/PhotoContainer.dart';
 import '../widgets/activityheading.dart';
@@ -25,8 +25,9 @@ class _ActivityScreenState extends State<ActivityScreen> {
         ),
         backgroundColor: Colors.blueAccent,
         centerTitle: true,
+        automaticallyImplyLeading: false,
       ),
-      body: Padding(
+      body: const Padding(
         padding: EdgeInsets.symmetric(horizontal: knormalSpacing + 5),
         child: SingleChildScrollView(
           child: Column(

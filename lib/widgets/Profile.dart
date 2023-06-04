@@ -30,19 +30,19 @@ Widget _profilecard() {
         if (index == 0) {
           return _customListTile(
             leadingIcon: Icons.person,
-            title: "Email Address",
+            title: "Library Id",
           );
         } else if (index == 1) {
           return _customListTile(
             leadingIcon: Icons.person,
-            title: "Roll Number",
+            title: "Name",
           );
         } else if (index == 2) {
           return GestureDetector(
             onTap: () {},
             child: _customListTile(
               leadingIcon: Icons.person,
-              title: "Name",
+              title: "Roll Number",
             ),
           );
         }

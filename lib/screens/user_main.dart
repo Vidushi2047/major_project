@@ -1,23 +1,15 @@
 import 'dart:math';
-import 'package:carousel_slider/carousel_options.dart';
+
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:kiet_event/screens/frontscreen.dart';
+
 import 'package:kiet_event/screens/screenclub.dart';
 import 'package:kiet_event/screens/ProfileScreen.dart';
 import 'package:kiet_event/screens/ActivityScreen.dart';
-import 'package:kiet_event/screens/ChangePassword.dart';
-import 'package:kiet_event/screens/Dashboard.dart';
+
 import 'package:kiet_event/screens/EventScreen.dart';
-import 'package:kiet_event/screens/signup.dart';
-import 'package:kiet_event/screens/welcomescreen.dart';
-import 'package:kiet_event/widgets/Profile.dart';
-import 'package:kiet_event/screens/login_screen.dart';
+
 import 'package:kiet_event/utils/constant.dart';
 import 'package:flutter/material.dart';
-
-import '../widgets/ContainerBox.dart';
-import 'welcome_screen.dart';
-import 'clubscreens.dart';
 
 class UserMain extends StatefulWidget {
   const UserMain({super.key});

@@ -6,7 +6,6 @@ import '../utils/colors.dart';
 import '../utils/constant.dart';
 import '../widgets/ButtonWidget.dart';
 import 'frontscreen.dart';
-import 'user_main.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';
