@@ -1,82 +1,76 @@
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({super.key});
+  const Profile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 5),
-        child: Container(
-          // height: 400,
-
-          width: size.width - 60,
-          child: Column(
-            children: [
-              _profilecard(),
-            ],
-          ),
-        ));
+      padding: const EdgeInsets.symmetric(horizontal: 5),
+      child: Container(
+        width: size.width - 60,
+        child: Column(
+          children: [
+            _profilecard(),
+          ],
+        ),
+      ),
+    );
   }
 }
 
 Widget _profilecard() {
   return Card(
-    color: Color.fromARGB(255, 255, 255, 255),
-    child: Column(
-      children: const [
-        ListTile(
-          leading: Icon(Icons.person_2),
-          title: Text("2124MCA1136"),
-        ),
-        Divider(
-          height: 5,
-          endIndent: 0,
-        ),
-        ListTile(
-          leading: Icon(Icons.person),
-          title: Text("2100290140114"),
-        ),
-        Divider(
-          height: 5,
-          endIndent: 0,
-        ),
-        ListTile(
-          leading: Icon(Icons.person),
-          title: Text("Clubs Enrolled"),
-        ),
-        Divider(
-          height: 5,
-          endIndent: 0,
-        ),
-        ListTile(
-          leading: Icon(Icons.person),
-          title: Text("Activities"),
-        ),
-        Divider(
-          height: 5,
-          endIndent: 0,
-        ),
-        ListTile(
-          leading: Icon(Icons.person),
-          title: Text("Events"),
-        ),
-        Divider(
-          height: 5,
-        ),
-        ListTile(
-          leading: Icon(Icons.person),
-          title: Text("Certificates"),
-        ),
-        Divider(
-          height: 5,
-        ),
-        ListTile(
-          leading: Icon(Icons.person),
-          title: Text("Personal Details"),
-        ),
-      ],
+    color: Color.fromARGB(224, 20, 52, 79),
+    child: ListView.separated(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemBuilder: (context, index) {
+        if (index == 0) {
+          return _customListTile(
+            leadingIcon: Icons.person,
+            title: "Email Address",
+          );
+        } else if (index == 1) {
+          return _customListTile(
+            leadingIcon: Icons.person,
+            title: "Roll Number",
+          );
+        } else if (index == 2) {
+          return GestureDetector(
+            onTap: () {},
+            child: _customListTile(
+              leadingIcon: Icons.person,
+              title: "Name",
+            ),
+          );
+        }
+        // Add more conditions for additional tiles if needed
+
+        return Container(); // Return an empty container by default
+      },
+      separatorBuilder: (context, index) {
+        return SizedBox(
+          height: 10,
+          child: Divider(color: Colors.white), // White gap between tiles
+        );
+      },
+      itemCount: 3, // Replace with the actual number of tiles
+    ),
+  );
+}
+
+Widget _customListTile({required IconData leadingIcon, required String title}) {
+  return Container(
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(10),
+      color: Color.fromARGB(223, 255, 255, 255),
+    ),
+    padding: const EdgeInsets.all(8),
+    child: ListTile(
+      leading: Icon(leadingIcon),
+      title: Text(title),
     ),
   );
 }

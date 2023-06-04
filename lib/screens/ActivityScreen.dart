@@ -1,4 +1,4 @@
-import 'package:flash_chat/utils/constant.dart';
+import 'package:kiet_event/utils/constant.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/PhotoContainer.dart';

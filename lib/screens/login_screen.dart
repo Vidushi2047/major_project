@@ -1,6 +1,6 @@
-import 'package:flash_chat/screens/ForgetPassword_screen.dart';
+import 'package:kiet_event/screens/ForgetPassword_screen.dart';
 
-import 'package:flash_chat/screens/registration_screen.dart';
+import 'package:kiet_event/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 import '../utils/constant.dart';

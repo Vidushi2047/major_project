@@ -1,4 +1,4 @@
-import 'package:flash_chat/screens/login_screen.dart';
+import 'package:kiet_event/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/constant.dart';

@@ -1,5 +1,5 @@
-import 'package:flash_chat/utils/constant.dart';
-import 'package:flash_chat/widgets/Profile.dart';
+import 'package:kiet_event/utils/constant.dart';
+import 'package:kiet_event/widgets/Profile.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {

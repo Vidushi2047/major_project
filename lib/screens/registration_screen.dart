@@ -1,5 +1,5 @@
-import 'package:flash_chat/screens/user_main.dart';
-import 'package:flash_chat/utils/constant.dart';
+import 'package:kiet_event/screens/user_main.dart';
+import 'package:kiet_event/utils/constant.dart';
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 import '../widgets/ButtonWidget.dart';
